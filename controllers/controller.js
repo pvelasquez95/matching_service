@@ -1,15 +1,15 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-    host: 'overwatchdb.cnfimyrdxarp.us-east-2.rds.amazonaws.com',
-    user: 'usradmin',
-    password: 'vir2017.',
-    database: 'vir'
-});
-
 module.exports = {
 
     getCategories(req, res) {
+
+        var connection = mysql.createConnection({
+            host: 'overwatchdb.cnfimyrdxarp.us-east-2.rds.amazonaws.com',
+            user: 'usradmin',
+            password: 'vir2017.',
+            database: 'vir'
+        });
 
         connection.connect(function (error) {
             if (error) {
@@ -18,6 +18,7 @@ module.exports = {
             }
             else {
                 var cat = req.params.category;
+                
                 var query = "select * from Advertiser_Campaigns where category = " + cat + " and status = 1";
                 //Run query
                 connection.query(query, function (error, results, fields) {
