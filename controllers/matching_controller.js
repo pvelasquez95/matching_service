@@ -18,7 +18,7 @@ module.exports = {
                 res.status(500).send({ message: error.message });
             }
             else {
-                var query = "select * from Advertiser_Campaigns";
+                var query = "select * from vir.Advertiser_Campaigns where category = " + req.params.category + " and status = true";
                 //Run query
                 connection.query(query, function (error, results, fields) {
                     connection.end();
