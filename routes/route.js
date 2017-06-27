@@ -3,7 +3,7 @@ var router = express.Router();
 const miController = require('../controllers').mi_controller;
 
 //Este usa params. Lo que se ponga después de los dos puntos es el nombre del param dentro del controller
-router.get('/matching/', function(req, res) {
+router.get('/matching/:category', function(req, res) {
     miController.getCategories(req, res);
 });
 
