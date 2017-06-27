@@ -7,7 +7,6 @@ var connection = mysql.createConnection({
     database: 'vir'
 });
 
-
 module.exports = {
 
     getCategories(req, res) {
@@ -18,7 +17,8 @@ module.exports = {
                 res.status(500).send({ message: error.message });
             }
             else {
-                var query = "select * from vir.Advertiser_Campaigns where category = " + req.params.category + " and status = true";
+                var cat = req.params.category;
+                var query = "select * from Advertiser_Campaigns where category = " + cat + " and status = 1";
                 //Run query
                 connection.query(query, function (error, results, fields) {
                     connection.end();
