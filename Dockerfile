@@ -1,6 +1,6 @@
 FROM node:6.9.4 
 MAINTAINER Francisco Manjón  
-EXPOSE 8080  
+EXPOSE 80 
 RUN mkdir -p /usr/src/app  
 WORKDIR /usr/src/app  
 ADD . /usr/src/app  
